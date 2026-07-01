@@ -1,0 +1,51 @@
+/* ============================================
+   TOKENS DE DISEÑO (Variables globales)
+   ============================================ */
+:root {
+  /* Colores base */
+  --color-background: #1e1e24;   /* Fondo exterior (oscuro) */
+  --color-surface: #ffffff;      /* Fondo del contenedor del juego */
+  --color-primary: #3b82f6;      /* Color de acento (ej. botones) */
+  --color-text: #1f2937;         /* Color de texto principal */
+
+  /* Sombras */
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+  /* Espaciados */
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+
+  /* Tipografía */
+  --font-size-large: 24px;
+  --font-size-medium: 18px;
+
+  /* Bordes */
+  --border-radius-card: 24px;
+
+  /* Tamaños de contenedor */
+  --container-max-width: 450px;
+  --container-height-mobile: 100vh;
+  --container-height-desktop: 85vh;
+}
+
+/* ============================================
+   RESET GLOBAL
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-background);
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}

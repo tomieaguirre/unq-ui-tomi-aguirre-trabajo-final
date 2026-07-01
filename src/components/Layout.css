@@ -1,0 +1,30 @@
+/* Fondo exterior que ocupa toda la pantalla */
+.layout-backdrop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: var(--color-background);
+}
+
+/* Contenedor principal del juego */
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: var(--container-height-mobile);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  position: relative;
+}
+
+/* En pantallas más grandes (PC / Tablet) se comporta como una tarjeta centrada */
+@media (min-width: 480px) {
+  .layout-container {
+    max-width: var(--container-max-width);
+    height: var(--container-height-desktop);
+    border-radius: var(--border-radius-card);
+  }
+}
