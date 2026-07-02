@@ -1,0 +1,151 @@
+.logo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* ===================================================== */
+/* ==================== LAYOUT ========================== */
+/* ===================================================== */
+
+.vertical {
+  flex-direction: column;
+}
+
+.horizontal {
+  flex-direction: row;
+}
+
+/* ===================================================== */
+/* ==================== BLOCKS ========================== */
+/* ===================================================== */
+
+.blocks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-weight: bold;
+
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-button);
+}
+
+.yellow {
+  background: var(--color-block-a);
+}
+
+.green {
+  background: var(--color-block-b);
+}
+
+.blue {
+  background: var(--color-block-c);
+}
+
+.purple {
+  background: var(--color-block-d);
+}
+
+/* ===================================================== */
+/* ===================== TEXT =========================== */
+/* ===================================================== */
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  color: var(--color-text-main);
+  line-height: 1.1;
+}
+
+.subtitle {
+  color: var(--color-secondary);
+
+  line-height: 1;
+  text-align: center;
+}
+
+/* Espaciados según layout */
+
+.vertical .blocks {
+  margin-bottom: var(--spacing-sm);
+}
+
+.vertical .title {
+  margin-top: var(--spacing-sm);
+}
+
+.horizontal .text {
+  margin-left: var(--spacing-md);
+}
+
+.horizontal .title {
+  margin: 0;
+}
+
+/* ===================================================== */
+/* ===================== BIG ============================ */
+/* ===================================================== */
+
+.big .block {
+  width: 60px;
+  height: 60px;
+  font-size: 32px;
+}
+
+.big .title {
+  font-size: var(--logo-title-big);
+}
+
+.big .subtitle {
+  font-size: var(--logo-subtitle-big);
+  letter-spacing: 4px;
+}
+
+/* ===================================================== */
+/* ==================== SMALL =========================== */
+/* ===================================================== */
+
+.small .block {
+    width: 16px;
+    height: 16px;
+
+    border-radius: var(--border-radius-sm);
+
+    font-size: var(--font-size-xs);
+}
+
+.small .blocks {
+    gap: 2px;
+}
+
+.small .title {
+    font-size: var(--logo-title-small);
+    line-height: 1;
+}
+
+.small .subtitle {
+  font-size: var(--logo-subtitle-small);
+  letter-spacing: 1px;
+}
+
+.horizontal .text {
+    margin-left: var(--spacing-sm);
+}
+
+.horizontal .title {
+    margin: 0;
+}
