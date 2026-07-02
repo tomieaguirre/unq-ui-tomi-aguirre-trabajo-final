@@ -57,8 +57,8 @@
   --border-radius-card: 24px;
 
   /* Medidas del Contenedor de la Aplicación */
-  --container-max-width: 900px;
-  --container-height-desktop: 85vh;
+  --container-max-width: min(1100px, 95vw);
+  --container-height-desktop: min(80vh, 800px);
 }
 
 /* ============================================
