@@ -1,13 +1,33 @@
-import React from 'react';
+import { Link, Play } from 'lucide-react';
 
-export const HomeView = ({ onStartGame }) => {
+import Logo from '../components/branding/Logo/Logo';
+import styles from './HomeView.module.css';
+
+export default function HomeView() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '20px', textAlign: 'center' }}>
-      <h1>ENCADENA2</h1>
-      <p>¡Forma la cadena de palabras más larga antes de que se agote el tiempo!</p>
-      <button onClick={onStartGame} style={{ marginTop: '20px', padding: '12px 24px', fontSize: '18px', cursor: 'pointer' }}>
-        Jugar
+    <div className={styles.content}>
+      <Logo
+        size="big"
+        layout="vertical"
+      />
+
+      <div className={styles.infoBox}>
+        <Link
+          className={styles.infoIcon}
+          size={24}
+          color="var(--color-success)"
+        />
+
+        <p>
+          Forma la <strong>cadena más larga</strong> de palabras antes de que
+          se acabe el tiempo.
+        </p>
+      </div>
+
+      <button className={styles.playButton}>
+        <Play fill="white" size={24} />
+        <span>JUGAR</span>
       </button>
     </div>
   );
-};
+}

@@ -1,0 +1,34 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm);
+
+  padding: var(--spacing-md);
+
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+
+  user-select: none;
+}
+
+.githubLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: inherit;
+
+  transition:
+    color .2s,
+    transform .15s;
+}
+
+.githubLink:hover {
+  color: var(--color-text-main);
+  transform: scale(1.1);
+}
+
+.githubLink:active {
+  transform: scale(.95);
+}
