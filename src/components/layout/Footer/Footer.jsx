@@ -9,7 +9,7 @@ export default function Footer() {
       <span>© {currentYear} Tomás Aguirre</span>
 
       <a
-        href="https://github.com/tomieaguirre"
+        href="https://github.com/tomieaguirre/unq-ui-tomi-aguirre-trabajo-final"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="GitHub"
