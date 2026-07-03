@@ -3,6 +3,7 @@ import { BarChart2, Menu, Settings, X } from "lucide-react";
 
 import Logo from "../../branding/Logo/Logo";
 import IconButton from "../../ui/IconButton/IconButton";
+import { PATHS } from "../../../routes/paths";
 import styles from "./Header.module.css";
 
 export default function Header() {
@@ -10,7 +11,7 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <Logo size="small" layout="horizontal" />
+      <Logo size="small" layout="horizontal" to={PATHS.HOME} />
 
       {/* Desktop */}
       <div className={styles.desktopActions}>
@@ -21,11 +22,10 @@ export default function Header() {
       {/* Mobile */}
       <div className={styles.mobileMenu}>
         <IconButton 
-            icon={isMenuOpen ? <X size={22} /> : <Menu size={22} />} 
-            label="Menú" 
-            onClick={() => setIsMenuOpen((open) => !open)}> 
-                {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
-        </IconButton>
+          icon={isMenuOpen ? <X size={22} /> : <Menu 
+          size={22} />} 
+          label="Menú" onClick={() => setIsMenuOpen((open) => !open)} 
+        />
 
         {isMenuOpen && (
           <div className={styles.dropdown}>

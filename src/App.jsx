@@ -1,13 +1,5 @@
-import React from 'react';
-import Layout from './components/layout/Layout/Layout';
-import HomeView from './views/HomeView';
+import AppRouter from "./routes/AppRouter";
 
-function App() {
-  return (
-    <Layout>
-      <HomeView />
-    </Layout>
-  );
+export default function App() {
+  return <AppRouter />;
 }
-
-export default App;
