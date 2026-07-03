@@ -58,8 +58,9 @@
   justify-content: center;
   align-items: center;
   gap: var(--spacing-sm);
-
-  min-width: 180px;
+  
+  width: 100%;
+  max-width: 400px;
 
   padding: var(--spacing-md) var(--spacing-xl);
 
