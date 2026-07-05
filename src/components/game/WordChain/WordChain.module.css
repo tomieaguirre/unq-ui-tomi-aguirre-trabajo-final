@@ -1,0 +1,41 @@
+/* ============================================
+   CHAIN CONTAINER
+   ============================================ */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    
+    padding: var(--spacing-xl);
+    
+    background: #93c5fd;
+    border-radius: var(--border-radius-xl);
+    
+    overflow: hidden;
+}
+
+/* ============================================
+   LIST WRAPPER
+   ============================================ */
+
+.listWrapper {
+    flex: 1;
+    
+    padding-right: var(--spacing-sm);
+    
+    overflow-y: auto;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-lg);
+    }
+}

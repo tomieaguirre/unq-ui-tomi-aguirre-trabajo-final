@@ -1,0 +1,97 @@
+/* ============================================
+   GAME PAGE
+   ============================================ */
+
+.page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    
+    width: 100%;
+    min-height: 0;
+    
+    overflow: hidden;
+}
+
+.content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 2.05fr) minmax(320px, 1fr);
+    gap: var(--spacing-lg);
+    
+    min-height: 0;
+    
+    overflow: hidden;
+}
+
+/* ============================================
+   CHAIN SECTION
+   ============================================ */
+
+.chain {
+    display: flex;
+    flex-direction: column;
+    
+    min-height: 0;
+    
+    overflow: hidden;
+}
+
+.chain > * {
+    flex: 1;
+    
+    min-height: 0;
+    
+    overflow-y: auto;
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    
+    min-height: 0;
+}
+
+.sidebar > * {
+    flex: 0 0 auto;
+}
+
+.sidebar > :last-child {
+    margin-top: auto;
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE/TABLET
+   ============================================ */
+
+@media (max-width: 900px) {
+    .page {
+        gap: var(--spacing-md);
+    }
+    
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .chain {
+        flex: 1;
+        min-height: 0;
+    }
+    
+    .sidebar {
+        flex-shrink: 0;
+        gap: var(--spacing-md);
+    }
+    
+    .sidebar > :last-child {
+        display: none;
+    }
+}

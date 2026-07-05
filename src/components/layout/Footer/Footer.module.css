@@ -1,34 +1,56 @@
+/* ============================================
+   FOOTER
+   ============================================ */
+
 .footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--spacing-sm);
-
-  padding: var(--spacing-md);
-
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-
-  user-select: none;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    
+    flex-shrink: 0;
+    min-height: var(--footer-height);
+    padding-inline: var(--spacing-lg);
+    
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    
+    user-select: none;
+    opacity: 0.75;
+    
+    transition: opacity 0.2s;
 }
 
+.footer:hover {
+    opacity: 1;
+}
+
+/* ============================================
+   GITHUB LINK
+   ============================================ */
+
 .githubLink {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: inherit;
-
-  transition:
-    color .2s,
-    transform .15s;
+    color: inherit;
+    
+    transition: 
+        color 0.2s,
+        transform 0.15s;
 }
 
 .githubLink:hover {
-  color: var(--color-text-main);
-  transform: scale(1.1);
+    color: var(--color-text-main);
+    transform: scale(1.08);
 }
 
 .githubLink:active {
-  transform: scale(.95);
+    transform: scale(0.95);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 767px) {
+    .footer {
+        display: none;
+    }
 }

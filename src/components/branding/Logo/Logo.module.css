@@ -1,131 +1,139 @@
+/* ============================================
+   LOGO COMPONENT
+   ============================================ */
+
 .logo {
-  display: flex;
-  align-items: center;
-  width: 100%;
+    display: flex;
+    align-items: center;
+    
+    width: 100%;
 }
 
-/* ===================================================== */
-/* ==================== LAYOUT ========================== */
-/* ===================================================== */
+/* ============================================
+   LAYOUT VARIANTS
+   ============================================ */
 
 .vertical {
-  flex-direction: column;
+    flex-direction: column;
 }
 
 .horizontal {
-  flex-direction: row;
+    flex-direction: row;
 }
 
-/* ===================================================== */
-/* ==================== BLOCKS ========================== */
-/* ===================================================== */
+/* ============================================
+   BLOCKS
+   ============================================ */
 
 .blocks {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
-  flex-shrink: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    
+    flex-shrink: 0;
 }
 
 .block {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: white;
-  font-weight: bold;
-
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-button);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: white;
+    font-weight: bold;
+    
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-button);
 }
 
+/* Block Colors */
 .yellow {
-  background: var(--color-block-a);
+    background: var(--color-block-a);
 }
 
 .green {
-  background: var(--color-block-b);
+    background: var(--color-block-b);
 }
 
 .blue {
-  background: var(--color-block-c);
+    background: var(--color-block-c);
 }
 
 .purple {
-  background: var(--color-block-d);
+    background: var(--color-block-d);
 }
 
-/* ===================================================== */
-/* ===================== TEXT =========================== */
-/* ===================================================== */
+/* ============================================
+   TEXT
+   ============================================ */
 
 .text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    text-align: center;
 }
 
 .title {
-  color: var(--color-text-main);
-  line-height: 1.1;
+    color: var(--color-text-main);
+    line-height: 1.1;
 }
 
 .subtitle {
-  color: var(--color-secondary);
-
-  line-height: 1;
-  text-align: center;
+    color: var(--color-secondary);
+    line-height: 1;
+    text-align: center;
 }
 
-/* Espaciados según layout */
+/* ============================================
+   LAYOUT SPACING
+   ============================================ */
 
 .vertical .blocks {
-  margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
 }
 
 .vertical .title {
-  margin-top: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
 }
 
 .horizontal .text {
-  margin-left: var(--spacing-md);
+    margin-left: var(--spacing-md);
 }
 
 .horizontal .title {
-  margin: 0;
+    margin: 0;
 }
 
-/* ===================================================== */
-/* ===================== BIG ============================ */
-/* ===================================================== */
+/* ============================================
+   BIG SIZE
+   ============================================ */
 
 .big .block {
-  width: 60px;
-  height: 60px;
-  font-size: 32px;
+    width: 60px;
+    height: 60px;
+    font-size: 32px;
 }
 
 .big .title {
-  font-size: var(--logo-title-big);
+    font-size: var(--logo-title-big);
 }
 
 .big .subtitle {
-  font-size: var(--logo-subtitle-big);
-  letter-spacing: 4px;
+    font-size: var(--logo-subtitle-big);
+    letter-spacing: 4px;
 }
 
-/* ===================================================== */
-/* ==================== SMALL =========================== */
-/* ===================================================== */
+/* ============================================
+   SMALL SIZE
+   ============================================ */
 
 .small .block {
     width: 16px;
     height: 16px;
-
-    border-radius: var(--border-radius-sm);
-
     font-size: var(--font-size-xs);
+    
+    border-radius: var(--border-radius-sm);
 }
 
 .small .blocks {
@@ -138,35 +146,39 @@
 }
 
 .small .subtitle {
-  font-size: var(--logo-subtitle-small);
-  letter-spacing: 1px;
+    font-size: var(--logo-subtitle-small);
+    letter-spacing: 1px;
 }
 
-.horizontal .text {
+.small.horizontal .text {
     margin-left: var(--spacing-sm);
 }
 
-.horizontal .title {
+.small.horizontal .title {
     margin: 0;
 }
 
+/* ============================================
+   LINK
+   ============================================ */
+
 .link {
-  display: inline-flex;
-
-  color: inherit;
-  text-decoration: none;
-
-  transition:
-    transform 180ms ease,
-    opacity 180ms ease;
+    display: inline-flex;
+    
+    color: inherit;
+    text-decoration: none;
+    
+    transition: 
+        transform 180ms ease,
+        opacity 180ms ease;
 }
 
 .link:hover {
-  transform: translateY(-1px);
-  opacity: 0.95;
+    transform: translateY(-1px);
+    opacity: 0.95;
 }
 
 .link:active {
-  transform: translateY(0);
-  opacity: 0.9;
+    transform: translateY(0);
+    opacity: 0.9;
 }

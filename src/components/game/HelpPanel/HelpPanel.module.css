@@ -1,0 +1,27 @@
+/* ============================================
+   HELP CONTAINER
+   ============================================ */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    
+    flex-shrink: 0;
+    width: 100%;
+    padding: var(--spacing-lg);
+    
+    background: #fde68a;
+    border-radius: var(--border-radius-xl);
+    overflow: hidden;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .container {
+        display: none;
+    }
+}
