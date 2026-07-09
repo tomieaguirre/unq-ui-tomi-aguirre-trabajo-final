@@ -1,0 +1,145 @@
+/* ============================================
+   NEXT LETTER CARD
+   ============================================ */
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+
+    /* Altura fija para que el contenedor nunca se deforme */
+    height: 80px;
+    
+    width: 100%;
+    
+    /* Padding solo a la derecha, el izquierdo es 0 para que el círculo esté pegado al borde */
+    padding: 0 var(--spacing-md) 0 0;
+
+    background: color-mix(in srgb, var(--color-secondary) 15%, var(--color-surface));
+    
+    /* Borde izquierdo redondeado y el resto normal */
+    border-radius: 100px var(--border-radius-xl) var(--border-radius-xl) 100px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+}
+
+/* ============================================
+   LETTER CIRCLE
+   ============================================ */
+
+.letterCircle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 72px;
+    height: 72px;
+    
+    border-radius: 50%;
+
+    background: var(--color-primary);
+    color: white;
+
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* ============================================
+   CONTENT
+   ============================================ */
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    flex: 1;
+    min-width: 0; 
+
+    height: 100%;
+
+    padding: 0;
+    
+    overflow: hidden;
+}
+
+.title {
+    margin: 0;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    color: var(--color-primary);
+
+    /* Forzar una sola línea con ellipsis */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.description {
+    margin: 0;
+
+    color: var(--color-text-muted);
+    line-height: 1.5;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .container {
+        height: 70px;
+        padding: 0 var(--spacing-md) 0 0;
+        gap: var(--spacing-md);
+    }
+
+    .letterCircle {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+    }
+
+    .title {
+        font-size: 0.85rem;
+    }
+
+    .description {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        height: 60px;
+        padding: 0 var(--spacing-sm) 0 0;
+        gap: var(--spacing-sm);
+    }
+
+    .letterCircle {
+        width: 52px;
+        height: 52px;
+        font-size: 1.35rem;
+    }
+
+    .title {
+        font-size: 0.75rem;
+    }
+
+    .description {
+        font-size: 0.75rem;
+    }
+}

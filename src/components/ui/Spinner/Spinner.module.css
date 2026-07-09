@@ -1,0 +1,54 @@
+/* ============================================
+   SPINNER
+   ============================================ */
+
+.spinner {
+    display: inline-block;
+
+    border-radius: 50%;
+
+    border-style: solid;
+
+    border-color: currentColor;
+
+    border-right-color: transparent;
+
+    animation: spin .7s linear infinite;
+}
+
+/* ============================================
+   SIZES
+   ============================================ */
+
+.sm {
+    width: 16px;
+    height: 16px;
+
+    border-width: 2px;
+}
+
+.md {
+    width: 22px;
+    height: 22px;
+
+    border-width: 3px;
+}
+
+.lg {
+    width: 34px;
+    height: 34px;
+
+    border-width: 4px;
+}
+
+/* ============================================
+   ANIMATION
+   ============================================ */
+
+@keyframes spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
