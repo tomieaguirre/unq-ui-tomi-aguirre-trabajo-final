@@ -43,17 +43,7 @@ export default function useGame() {
                 type: GAME_ACTIONS.RESET_ERROR,
             });
 
-            const exists = await isValidWord(word);
-
-            if (!exists) {
-                dispatch({
-                    type: GAME_ACTIONS.SET_ERROR,
-                    payload: GAME_ERRORS.NOT_FOUND,
-                });
-
-                return false;
-            }
-
+            // Validación local: palabra repetida
             if (isRepeatedWord(game.words, word)) {
                 dispatch({
                     type: GAME_ACTIONS.SET_ERROR,
@@ -63,6 +53,7 @@ export default function useGame() {
                 return false;
             }
 
+            // Validación local: cadena válida
             if (
                 !isValidChain(
                     game.words,
@@ -78,6 +69,19 @@ export default function useGame() {
                 return false;
             }
 
+            // Validación externa: API 
+            const exists = await isValidWord(word);
+
+            if (!exists) {
+                dispatch({
+                    type: GAME_ACTIONS.SET_ERROR,
+                    payload: GAME_ERRORS.NOT_FOUND,
+                });
+
+                return false;
+            }
+            
+            // Agrega palabra válida
             dispatch({
                 type: GAME_ACTIONS.ADD_WORD,
                 payload: {
@@ -89,11 +93,9 @@ export default function useGame() {
             return true;
 
         } finally {
-
             dispatch({
                 type: GAME_ACTIONS.END_SUBMIT,
             });
-
         }
     };
 
