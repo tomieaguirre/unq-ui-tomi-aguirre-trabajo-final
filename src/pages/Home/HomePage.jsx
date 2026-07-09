@@ -1,8 +1,9 @@
 import { Link, Play } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import Logo from "../../components/branding/Logo/Logo";
 import styles from "./HomePage.module.css";
+import Button from "../../components/ui/Button/Button";
+import Logo from "../../components/branding/Logo/Logo";
 import { PATHS } from "../../routes/paths";
 
 export default function HomePage() {
@@ -21,10 +22,16 @@ export default function HomePage() {
           </p>
         </div>
 
-        <button className={styles.playButton} onClick={() => navigate(PATHS.GAME)}>
-          <Play fill="white" size={24} />
-          <span>JUGAR</span>
-        </button>
+        <Button
+          variant="success"
+          size="lg"
+          fullWidth
+          iconLeft={<Play fill="white" size={24} />}
+          onClick={() => navigate(PATHS.GAME)}
+        >
+          JUGAR
+        </Button>
+
       </div>
     </div>
   );
