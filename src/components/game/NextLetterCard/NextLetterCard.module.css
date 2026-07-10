@@ -15,7 +15,7 @@
     /* Padding solo a la derecha, el izquierdo es 0 para que el círculo esté pegado al borde */
     padding: 0 var(--spacing-md) 0 0;
 
-    background: color-mix(in srgb, var(--color-secondary) 10%, var(--color-surface));
+    background: color-mix(in srgb, var(--color-block-d) 15%, var(--color-surface));
     
     /* Borde izquierdo redondeado y el resto normal */
     border-radius: 100px var(--border-radius-xl) var(--border-radius-xl) 100px;
@@ -41,7 +41,7 @@
     
     border-radius: 50%;
 
-    background: var(--color-secondary);
+    background: var(--color-block-d);
     color: white;
 
     font-size: 2rem;
@@ -77,7 +77,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
 
-    color: var(--color-secondary);
+    color: var(--color-block-d);
 
     /* Forzar una sola línea con ellipsis */
     white-space: nowrap;

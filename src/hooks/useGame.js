@@ -42,17 +42,7 @@ export default function useGame() {
             dispatch({
                 type: GAME_ACTIONS.RESET_ERROR,
             });
-
-            // Validación local: palabra repetida
-            if (isRepeatedWord(game.words, word)) {
-                dispatch({
-                    type: GAME_ACTIONS.SET_ERROR,
-                    payload: GAME_ERRORS.DUPLICATED,
-                });
-
-                return false;
-            }
-
+            
             // Validación local: cadena válida
             if (
                 !isValidChain(
@@ -64,6 +54,16 @@ export default function useGame() {
                 dispatch({
                     type: GAME_ACTIONS.SET_ERROR,
                     payload: GAME_ERRORS.INVALID_CHAIN,
+                });
+
+                return false;
+            }
+
+            // Validación local: palabra repetida
+            if (isRepeatedWord(game.words, word)) {
+                dispatch({
+                    type: GAME_ACTIONS.SET_ERROR,
+                    payload: GAME_ERRORS.DUPLICATED,
                 });
 
                 return false;

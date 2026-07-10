@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { ArrowRight, ArrowDown } from "lucide-react";
 
-import WordCard from "../WordCard/WordCard";
+import WordCard from "./WordCard/WordCard";
 
 import styles from "./WordChain.module.css";
 
