@@ -70,43 +70,6 @@
 }
 
 /* ============================================
-   PLAY BUTTON
-   ============================================ */
-
-.playButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-sm);
-    
-    width: min(100%, 420px);
-    padding: var(--spacing-md) var(--spacing-xl);
-    
-    border: none;
-    border-radius: var(--border-radius-xxl);
-    
-    background: var(--color-success);
-    color: white;
-    
-    font-size: var(--font-size-lg);
-    font-weight: 700;
-    
-    cursor: pointer;
-    
-    box-shadow: var(--shadow-play);
-    
-    transition: transform 0.12s, opacity 0.2s;
-}
-
-.playButton:hover {
-    opacity: 0.92;
-}
-
-.playButton:active {
-    transform: scale(0.97);
-}
-
-/* ============================================
    RESPONSIVE
    ============================================ */
 
@@ -117,8 +80,7 @@
         padding: var(--spacing-lg) 0 var(--spacing-md);
     }
     
-    .infoBox,
-    .playButton {
+    .infoBox {
         width: 100%;
     }
 }

@@ -1,0 +1,123 @@
+/* ============================================
+   STAT CARD
+   ============================================ */
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+
+    min-width: 0;
+
+    padding: var(--spacing-lg);
+
+    border-radius: var(--border-radius-xl);
+}
+
+/* ============================================
+   BACKGROUND
+   ============================================ */
+
+.bgColorA {
+    background: color-mix(in srgb, var(--color-block-a) 15%, var(--color-surface));
+}
+
+.bgColorB {
+    background: color-mix(in srgb, var(--color-block-b) 15%, var(--color-surface));
+}
+
+.bgColorC {
+    background: color-mix(in srgb, var(--color-block-c) 15%, var(--color-surface));
+}
+
+/* ============================================
+   ICON
+   ============================================ */
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 64px;
+    height: 64px;
+
+    border-radius: 50%;
+
+    color: white;
+}
+
+.colorB {
+    background: var(--color-block-b);
+}
+
+.colorC {
+    background: var(--color-block-c);
+}
+
+.colorA {
+    background: var(--color-block-a);
+}
+
+/* ============================================
+   CONTENT
+   ============================================ */
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    min-width: 0;
+}
+
+.title {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+}
+
+.valueRow {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-xs);
+}
+
+.value {
+    font-size: clamp(34px, 3vw, 42px);
+    font-weight: 700;
+    color: var(--color-text-main);
+}
+
+.suffix {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-light);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md);
+    }
+
+    .icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .value {
+        font-size: 26px;
+    }
+
+    .valueRow {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,35 @@
+.card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: fit-content;
+    min-height: 64px;
+    padding: 1rem 2rem;
+
+    background: color-mix(in srgb, var(--color-secondary) 10%, var(--color-surface));
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-button);
+
+    flex-shrink: 0;
+}
+
+.word {
+    font-size: clamp(1.05rem, 1.3vw, 1.8rem);
+    font-weight: 700;
+    color: var(--color-text-main);
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+/* ============================================
+   MOBILE
+============================================ */
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        min-height: 64px;
+    }
+}
