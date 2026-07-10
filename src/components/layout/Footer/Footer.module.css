@@ -1,0 +1,56 @@
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    
+    flex-shrink: 0;
+    min-height: var(--footer-height);
+    padding-inline: var(--spacing-lg);
+    
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    
+    user-select: none;
+    opacity: 0.75;
+    
+    transition: opacity 0.2s;
+}
+
+.footer:hover {
+    opacity: 1;
+}
+
+/* ============================================
+   GITHUB LINK
+   ============================================ */
+
+.githubLink {
+    color: inherit;
+    
+    transition: 
+        color 0.2s,
+        transform 0.15s;
+}
+
+.githubLink:hover {
+    color: var(--color-text-main);
+    transform: scale(1.08);
+}
+
+.githubLink:active {
+    transform: scale(0.95);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 767px) {
+    .footer {
+        display: none;
+    }
+}

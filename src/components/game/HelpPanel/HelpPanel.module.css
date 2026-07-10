@@ -1,0 +1,142 @@
+/* ============================================
+   HELP CONTAINER
+   ============================================ */
+
+.container {
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+
+    flex-shrink: 0;
+
+    width: 100%;
+
+    padding: var(--spacing-md);
+
+    background: var(--color-surface);
+
+    border-radius: var(--border-radius-xl);
+
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.title {
+
+    font-size: var(--font-size-md);
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    color: var(--color-primary);
+
+}
+
+/* ============================================
+   RULES
+   ============================================ */
+
+.list {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: .55rem;
+
+    list-style: none;
+
+}
+
+.item {
+
+    display: flex;
+    align-items: center;
+
+    gap: .75rem;
+
+}
+
+.text {
+
+    flex: 1;
+
+    font-size: var(--font-size-sm);
+
+    line-height: 1.3;
+
+    color: var(--color-text-main);
+
+}
+
+/* ============================================
+   ICON
+   ============================================ */
+
+.icon {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+}
+
+/* ============================================
+   COLORS
+   ============================================ */
+
+.green {
+
+    color: var(--color-success);
+
+    background: rgba(83, 199, 108, .15);
+
+}
+
+.blue {
+
+    color: var(--color-primary);
+
+    background: rgba(104, 183, 254, .15);
+
+}
+
+.purple {
+
+    color: var(--color-secondary);
+
+    background: rgba(170, 127, 249, .15);
+
+}
+
+.yellow {
+
+    color: var(--color-warning);
+
+    background: rgba(253, 200, 36, .18);
+
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width:768px){
+
+    .container{
+
+        display:none;
+
+    }
+
+}

@@ -1,0 +1,86 @@
+/* ============================================
+   HOME PAGE
+   ============================================ */
+
+.content {
+    /* Layout */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    /* Dimensiones */
+    width: 100%;
+    max-width: 800px;
+    
+    /* Espaciado */
+    margin: 0 auto;
+    gap: var(--spacing-xl);
+    padding: clamp(20px, 3vh, 32px) clamp(16px, 3vw, 32px);
+    
+    /* Texto */
+    text-align: center;
+}
+
+/* ============================================
+   ACTION CONTAINER
+   ============================================ */
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    width: min(100%, 420px);
+}
+
+/* ============================================
+   INFO BOX
+   ============================================ */
+
+.infoBox {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    
+    width: min(100%, 420px);
+    padding: var(--spacing-md);
+    
+    background: var(--color-surface);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-button);
+}
+
+.infoBox p {
+    font-size: var(--font-size-md);
+    line-height: 1.45;
+}
+
+.infoIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    
+    width: 40px;
+    height: 40px;
+    
+    background: #E6FCF5;
+    border-radius: 50%;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .content {
+        justify-content: space-around;
+        gap: var(--spacing-lg);
+        padding: var(--spacing-lg) 0 var(--spacing-md);
+    }
+    
+    .infoBox {
+        width: 100%;
+    }
+}

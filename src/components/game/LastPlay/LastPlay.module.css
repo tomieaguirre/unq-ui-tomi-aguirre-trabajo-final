@@ -1,0 +1,116 @@
+/* ============================================
+   LAST PLAY
+   ============================================ */
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+
+    flex-shrink: 0;
+
+    width: 100%;
+
+    padding: var(--spacing-lg);
+
+    background: var(--color-surface);
+
+    border-radius: var(--border-radius-xl);
+
+    transition: background-color 0.25s ease;
+}
+
+/* ============================================
+   ICON WRAPPER
+   ============================================ */
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: color-mix(in srgb, currentColor 10%, transparent);
+    color: inherit;
+}
+
+/* ============================================
+   CONTENT
+   ============================================ */
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.title {
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+}
+
+.message {
+    color: var(--color-text-light);
+    font-size: var(--font-size-md);
+    line-height: 1.35;
+}
+
+/* ============================================
+   VARIANTS
+   ============================================ */
+
+.success {
+    color: var(--color-success);
+    background: color-mix(in srgb, var(--color-success) 10%, var(--color-surface));
+}
+
+.success .title {
+    color: var(--color-text-main);
+}
+
+.error {
+    color: var(--color-warning);
+    background: color-mix(in srgb, var(--color-warning) 10%, var(--color-surface));
+}
+
+.error .title {
+    color: var(--color-text-main);
+}
+
+.info {
+    color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
+}
+
+.info .title {
+    color: var(--color-text-main);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-md);
+    }
+
+    .iconWrapper {
+        width: 42px;
+        height: 42px;
+    }
+
+    .title {
+        font-size: var(--font-size-md);
+    }
+
+    .message {
+        font-size: var(--font-size-sm);
+    }
+}

@@ -1,0 +1,67 @@
+/* ============================================
+   OVERLAY
+   ============================================ */
+
+.overlay{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(239,243,252,.72);
+
+    backdrop-filter:blur(4px);
+
+    z-index:100;
+}
+
+/* ============================================
+   NUMBER
+   ============================================ */
+
+.number{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    background:var(--color-surface);
+
+    box-shadow:var(--shadow-card);
+
+    font-size:4.5rem;
+    font-weight:800;
+
+    color:var(--color-primary);
+
+    animation:pop .35s;
+}
+
+/* ============================================
+   ANIMATION
+   ============================================ */
+
+@keyframes pop{
+
+    from{
+
+        transform:scale(.6);
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+        opacity:1;
+
+    }
+
+}

@@ -1,11 +1,5 @@
-import './index.css'
+import AppRouter from "./routes/AppRouter";
 
-function App() {
-  return (
-    <main>
-      <h1>Palabras Encadenadas</h1>
-    </main>
-  )
+export default function App() {
+  return <AppRouter />;
 }
-
-export default App

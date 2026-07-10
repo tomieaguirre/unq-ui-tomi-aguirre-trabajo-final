@@ -1,0 +1,130 @@
+/* ============================================
+   OVERLAY
+   ============================================ */
+
+.overlay{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:var(--spacing-lg);
+
+    background:rgba(35,47,77,.55);
+
+    backdrop-filter:blur(4px);
+
+    z-index:999; /* el big shot */
+
+}
+
+/* ============================================
+   MODAL
+   ============================================ */
+
+.modal{
+
+    display:flex;
+    flex-direction:column;
+
+    width:min(100%,520px);
+
+    background:var(--color-surface);
+
+    border-radius:var(--border-radius-card);
+
+    box-shadow:var(--shadow-card);
+
+    overflow:hidden;
+
+    animation:show .2s ease;
+
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:var(--spacing-lg);
+
+    border-bottom:1px solid var(--color-border);
+
+}
+
+.header h2{
+
+    font-size:var(--font-size-lg);
+
+}
+
+/* ============================================
+   CONTENT
+   ============================================ */
+
+.content{
+
+    padding:var(--spacing-xl);
+
+}
+
+/* ============================================
+   CLOSE
+   ============================================ */
+
+.closeButton{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:38px;
+    height:38px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:none;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.closeButton:hover{
+
+    background:var(--color-background);
+
+}
+
+/* ============================================
+   ANIMATION
+   ============================================ */
+
+@keyframes show{
+
+    from{
+
+        opacity:0;
+        transform:scale(.96);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:scale(1);
+
+    }
+
+}

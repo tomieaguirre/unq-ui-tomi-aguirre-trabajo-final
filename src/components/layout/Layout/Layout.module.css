@@ -1,0 +1,69 @@
+/* ============================================
+   APP LAYOUT
+   ============================================ */
+
+.appWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    width: 100%;
+    min-height: 100dvh;
+    
+    background: transparent;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    height: 100dvh;
+    
+    position: relative;
+    overflow: hidden;
+    
+    background-image: url("../../../assets/main-background.png");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
+    min-height: 0;
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+    
+    overflow: hidden;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (min-width: 768px) {
+    .appWrapper {
+        padding: var(--page-padding-desktop);
+        gap: var(--page-padding-desktop);
+    }
+    
+    .container {
+        max-width: var(--container-width);
+        height: min(
+            calc(100dvh - (var(--page-padding-desktop) * 2) - var(--footer-height) - var(--page-padding-desktop)),
+            var(--container-height)
+        );
+        
+        border-radius: var(--border-radius-card);
+        box-shadow: var(--shadow-card);
+    }    
+}
+
+@media (max-width: 767px) {
+    .main {
+        padding: 0 var(--spacing-md) var(--spacing-md);
+    }
+}

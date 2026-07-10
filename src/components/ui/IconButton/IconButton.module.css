@@ -1,0 +1,38 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: var(--spacing-sm);
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+
+  color: var(--color-text-main);
+
+  cursor: pointer;
+
+  box-shadow: var(--shadow-button);
+
+  transition:
+    background-color .2s,
+    transform .15s,
+    box-shadow .15s;
+}
+
+.button:hover {
+  background: var(--color-surface);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button);
+}
+
+.button:active {
+  transform: scale(.96);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

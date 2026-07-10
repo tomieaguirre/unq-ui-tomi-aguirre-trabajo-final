@@ -1,0 +1,104 @@
+/* ============================================
+   BUTTON BASE
+   ============================================ */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+
+    border: none;
+    border-radius: var(--border-radius-lg);
+
+    font-weight: 700;
+    font-size: var(--font-size-md);
+
+    cursor: pointer;
+    transition: transform 0.12s, opacity 0.2s, box-shadow 0.2s;
+
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.button:hover:not(:disabled) {
+    opacity: 0.92;
+}
+
+.button:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   VARIANTS
+   ============================================ */
+
+.primary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.success {
+    background: var(--color-success);
+    color: white;
+    box-shadow: var(--shadow-play);
+    border-radius: var(--border-radius-xxl);
+}
+
+.secondary {
+    background: white;
+    color: var(--color-text-main);
+    border: 1px solid var(--color-border);
+}
+
+.secondary:hover:not(:disabled) {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* ============================================
+   SIZES
+   ============================================ */
+
+.sm {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+}
+
+.md {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-md);
+}
+
+.lg {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    font-size: var(--font-size-lg);
+}
+
+/* ============================================
+   FULL WIDTH
+   ============================================ */
+
+.fullWidth {
+    width: 100%;
+}
+
+/* ============================================
+   ICON
+   ============================================ */
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.label {
+    display: inline-block;
+}

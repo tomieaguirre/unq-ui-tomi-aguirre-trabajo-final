@@ -1,0 +1,140 @@
+:root {
+
+  /* Colores Base */
+  --color-background: #EFF3FC;
+  --color-surface: #FFFFFF;
+  --color-text-main: #232F4D;
+  --color-text-muted: #A6A9B9;
+  --color-text-light: #8D93AA;
+  --color-border: #DADBDE;
+
+  /* Marca */
+  --color-primary: #68B7FE;
+  --color-secondary: #AA7FF9;
+  --color-success: #53C76C;
+  --color-warning: #FDC824;
+
+  /* Logo */
+  --color-block-a: #FED44F;
+  --color-block-b: #9DE56D;
+  --color-block-c: #85C8FE;
+  --color-block-d: #CAA3FD;
+
+  /* Tipografía */
+  --font-size-xs: 10px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: clamp(16px, 1.2vw, 18px);
+  --font-size-xl: clamp(22px, 2vw, 24px);
+  --font-size-title: clamp(32px, 4vw, 40px);
+
+  /* Logo */
+  --logo-title-big: clamp(34px, 4vw, 40px);
+  --logo-subtitle-big: clamp(16px, 2vw, 18px);
+
+  --logo-title-small: 14px;
+  --logo-subtitle-small: 7px;
+
+  /* Espaciados */
+  --spacing-xs: 4px;
+  --spacing-sm: clamp(8px,1vw,10px);
+  --spacing-md: clamp(12px, 1.2vw, 16px);
+  --spacing-lg: clamp(20px, 2vw, 24px);
+  --spacing-xl: clamp(28px, 3vw, 40px);
+
+  /* Layout */
+  --page-padding-mobile: clamp(12px, 4vw, 18px);
+  --page-padding-desktop: clamp(18px, 2vw, 32px);
+
+  --container-width: min(94vw, 1500px);
+  --container-height: clamp(620px, 88dvh, 900px);
+
+  --header-height: clamp(64px, 7vh, 76px);
+  --footer-height: clamp(40px, 5vh, 52px);
+
+  /* Bordes */
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-xxl: 20px;
+  --border-radius-card: 24px;
+
+  /* Sombras */
+
+  --shadow-card: 0 4px 20px rgba(0,0,0,.30);
+  --shadow-button: 0 4px 15px rgba(0,0,0,.05);
+  --shadow-play: 0 8px 20px rgba(74,222,128,.30);
+
+}
+
+/* ============================================
+   RESET
+   ============================================ */
+
+*,
+*::before,
+*::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,
+body{
+
+  width:100%;
+  height:100%;
+  overflow:hidden;
+
+}
+
+body{
+
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+
+  color:var(--color-text-main);
+
+  background-image:url("/background.png");
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+
+}
+
+button,
+input,
+textarea,
+select{
+
+  font:inherit;
+
+}
+
+img{
+
+  display:block;
+  max-width:100%;
+
+}
+
+a{
+
+  color:inherit;
+  text-decoration:none;
+
+}
+
+#root{
+
+  width:100%;
+  height:100%;
+
+}

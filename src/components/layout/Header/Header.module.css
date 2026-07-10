@@ -1,0 +1,95 @@
+/* ============================================
+   HEADER
+   ============================================ */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    flex-shrink: 0;
+    min-height: var(--header-height);
+    padding: var(--spacing-md) var(--spacing-lg);
+    
+    z-index: 20;
+}
+
+/* ============================================
+   DESKTOP ACTIONS
+   ============================================ */
+
+.desktopActions {
+    display: none;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+@media (min-width: 768px) {
+    .desktopActions {
+        display: flex;
+    }
+}
+
+/* ============================================
+   MOBILE MENU
+   ============================================ */
+
+.mobileMenu {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .mobileMenu {
+        display: none;
+    }
+}
+
+/* ============================================
+   DROPDOWN
+   ============================================ */
+
+.dropdown {
+    position: absolute;
+    top: calc(100% + var(--spacing-sm));
+    right: 0;
+    
+    display: flex;
+    flex-direction: column;
+    
+    width: max-content;
+    min-width: 180px;
+    
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    
+    z-index: 999;
+}
+
+/* ============================================
+   MENU ITEMS
+   ============================================ */
+
+.menuItem {
+    padding: var(--spacing-md) var(--spacing-lg);
+    
+    background: none;
+    border: none;
+    
+    color: var(--color-text-main);
+    text-align: left;
+    
+    cursor: pointer;
+    
+    transition: background 0.18s;
+}
+
+.menuItem:hover {
+    background: color-mix(in srgb, var(--color-secondary) 20%, transparent);
+    color: var(--color-secondary);
+}
