@@ -46,8 +46,7 @@ export default function GamePage() {
                     <InputPanel
                         onSubmit={submitWord}
                         disabled={
-                            game.status === GAME_STATUS.FINISHED ||
-                            game.isSubmitting
+                            game.status === GAME_STATUS.FINISHED 
                         }
                         loading={game.isSubmitting}
                     />
