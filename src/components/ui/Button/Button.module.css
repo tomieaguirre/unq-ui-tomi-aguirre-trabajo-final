@@ -50,6 +50,17 @@
     border-radius: var(--border-radius-xxl);
 }
 
+.secondary {
+    background: white;
+    color: var(--color-text-main);
+    border: 1px solid var(--color-border);
+}
+
+.secondary:hover:not(:disabled) {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
 /* ============================================
    SIZES
    ============================================ */
