@@ -17,7 +17,7 @@
 .content {
     flex: 1;
     display: grid;
-    grid-template-columns: minmax(0, 2.05fr) minmax(320px, 1fr);
+    grid-template-columns: minmax(0, 2.5fr) minmax(260px, 1fr);
     gap: var(--spacing-lg);
     
     min-height: 0;
@@ -32,18 +32,21 @@
 .chain {
     display: flex;
     flex-direction: column;
+    gap: var(--spacing-sm); 
     
     min-height: 0;
     
     overflow: hidden;
 }
 
-.chain > * {
-    flex: 1;
-    
+.letterCard {
+    flex: 0 0 auto;
+}
+
+.wordChain {
+    flex: 1;           
     min-height: 0;
-    
-    overflow-y: auto;
+    overflow-y: auto;  
 }
 
 /* ============================================
@@ -67,30 +70,26 @@
 }
 
 /* ============================================
-   RESPONSIVE - MOBILE/TABLET
+   RESPONSIVE
    ============================================ */
 
-@media (max-width: 900px) {
-    .page {
-        gap: var(--spacing-md);
-    }
+@media (max-width: 768px) {
     
     .content {
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-md);
     }
     
     .chain {
         flex: 1;
         min-height: 0;
     }
-    
+
     .sidebar {
-        flex-shrink: 0;
-        gap: var(--spacing-md);
+        flex: none;
+        height: auto;
     }
-    
+
     .sidebar > :last-child {
         display: none;
     }
