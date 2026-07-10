@@ -13,6 +13,7 @@ import {
     isValidChain,
 } from "../utils/wordValidation";
 
+
 export default function useGame() {
 
     const [game, dispatch] = useReducer(
@@ -24,6 +25,11 @@ export default function useGame() {
        TIMER
        ============================================ */
 
+    /**
+     * Ejecuta el reloj del juego.
+     * El intervalo solo existe mientras la partida
+     * está en estado PLAYING.
+     */
     useEffect(() => {
 
         if (game.status !== GAME_STATUS.PLAYING) {
@@ -43,11 +49,59 @@ export default function useGame() {
     }, [game.status]);
 
     /* ============================================
+    FINISH GAME
+    ============================================ */
+    
+    /**
+     * Finaliza la partida únicamente cuando:
+     * - el reloj llegó a cero
+     * - el juego sigue en PLAYING
+     * - no existe una validación pendiente contra la API
+     *
+     * Esto permite aceptar una palabra enviada en el
+     * último segundo aunque la respuesta de la API
+     * llegue unos instantes después.
+     */
+    useEffect(() => {
+
+        if (
+            game.status !== GAME_STATUS.PLAYING ||
+            game.timeLeft > 0 ||
+            game.isSubmitting
+        ) {
+            return;
+        }
+
+        dispatch({
+            type: GAME_ACTIONS.FINISH_GAME,
+        });
+
+    }, [
+        game.status, 
+        game.timeLeft, 
+        game.isSubmitting,
+    ]);
+
+    /* ============================================
        SUBMIT WORD
        ============================================ */
 
+    /**
+     * Intenta agregar una palabra al juego.
+     *
+     * Orden de validaciones:
+     * 1. Cadena válida
+     * 2. Palabra repetida
+     * 3. Existencia en diccionario
+     *
+     * Solo las palabras válidas reinician el tiempo.
+     *
+     * @param {string} value
+     * @returns {Promise<boolean>} true si la palabra fue agregada.
+     */
     const submitWord = async (value) => {
 
+        // Evita múltiples requests simultáneas.
         if (game.isSubmitting) {
             return false;
         }
@@ -58,7 +112,8 @@ export default function useGame() {
             return false;
         }
 
-        // Guarda si el usuario alcanzó a enviar antes de terminar el turno.
+        // Guarda si el usuario alcanzó a enviar
+        // antes de terminar el turno.
         const submittedInTime =
             game.status !== GAME_STATUS.FINISHED &&
             game.timeLeft > 0;
@@ -151,22 +206,34 @@ export default function useGame() {
 
     };
 
-    const resetGame = () => {
+    /**
+     * Inicia la secuencia previa al juego
+     * mostrando el contador 3..2..1.
+     */
+    const startNewGame = () => {
 
         dispatch({
-            type: GAME_ACTIONS.RESET_GAME,
+            type: GAME_ACTIONS.START_COUNTDOWN,
         });
+    };
 
+    /**
+     * Se ejecuta cuando termina el countdown.
+     * Reinicia completamente el estado y
+     * comienza una nueva partida.
+     */
+    const finishCountdown = () => {
+
+        dispatch({
+            type: GAME_ACTIONS.START_GAME,
+        });
     };
 
     return {
-
         game,
-
         submitWord,
-
-        resetGame,
-
+        startNewGame,
+        finishCountdown,
     };
 
 }

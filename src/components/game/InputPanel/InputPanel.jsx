@@ -1,26 +1,63 @@
-import { useRef, useState } from "react";
-import { SendHorizontal } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 import Button from "../../ui/Button/Button";
 import Spinner from "../../ui/Spinner/Spinner";
+import { GAME_STATUS } from "../../../reducers/gameStatus";
+
 import styles from "./InputPanel.module.css";
 
 export default function InputPanel({
-    onSubmit,
-    disabled = false,
+    status,
     loading = false,
+    onSubmit,
+    onStart,
 }) {
 
     const [value, setValue] = useState("");
 
     const inputRef = useRef(null);
 
+    const canWrite =
+        status === GAME_STATUS.IDLE ||
+        status === GAME_STATUS.PLAYING;
+
+    /* ============================================
+       AUTO FOCUS
+       ============================================ */
+
+    useEffect(() => {
+
+        if (canWrite && !loading) {
+            inputRef.current?.focus();
+        }
+
+    }, [canWrite, loading]);
+
+    /* ============================================
+       CLEAR INPUT
+       ============================================ */
+
+    useEffect(() => {
+
+        if (status === GAME_STATUS.FINISHED) {
+            setValue("");
+        }
+
+    }, [status]);
+
+    /* ============================================
+       SUBMIT
+       ============================================ */
+
     const handleSubmit = async (event) => {
+
         event.preventDefault();
 
         const word = value.trim();
 
-        if (!word) return;
+        if (!word) {
+            return;
+        }
 
         const success = await onSubmit(word);
 
@@ -28,44 +65,66 @@ export default function InputPanel({
             setValue("");
         }
 
-        inputRef.current?.focus();
+        // Recupera el foco luego de la respuesta de la API.
+        requestAnimationFrame(() => {
+            inputRef.current?.focus();
+        });
+
     };
 
     return (
         <section className={styles.container}>
 
-            <form
-                className={styles.form}
-                onSubmit={handleSubmit}
-            >
-                <input
-                    ref={inputRef}
-                    type="text"
-                    placeholder="Escribe una palabra..."
+            {
+                status === GAME_STATUS.FINISHED ? (
 
-                    value={value}
+                    <Button
+                        variant="primary"
+                        size="md"
+                        fullWidth
+                        onClick={onStart}
+                    >
+                        Volver a jugar
+                    </Button>
 
-                    onChange={(event) =>
-                        setValue(event.target.value)
-                    }
+                ) : (
 
-                    className={styles.input}
+                    <form
+                        className={styles.form}
+                        onSubmit={handleSubmit}
+                    >
 
-                    autoComplete="off"
+                        <input
+                            ref={inputRef}
+                            type="text"
+                            placeholder="Escribe una palabra..."
+                            value={value}
+                            onChange={(event) =>
+                                setValue(event.target.value)
+                            }
+                            className={styles.input}
+                            autoComplete="off"
+                            disabled={!canWrite || loading}
+                        />
 
-                    disabled={disabled}
-                />
+                        <Button
+                            type="submit"
+                            variant="success"
+                            size="md"
+                            disabled={!canWrite || loading}
+                        >
+                            {
+                                loading
+                                    ? <Spinner size="sm" />
+                                    : "Enviar"
+                            }
+                        </Button>
 
-                <Button
-                    type="submit"
-                    variant="success"
-                    size="md"
-                    fullWidth
-                    disabled={disabled || loading}
-                >
-                    {loading ? <Spinner size="sm" /> : "Enviar"}
-                </Button>
-            </form>
+                    </form>
+
+                )
+            }
+
         </section>
     );
 }
