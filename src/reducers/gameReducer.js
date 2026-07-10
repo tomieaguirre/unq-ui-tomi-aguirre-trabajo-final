@@ -3,6 +3,7 @@ import { GAME_STATUS } from "./gameStatus";
 import { initialGameState } from "./initialGameState";
 
 export default function gameReducer(state, action) {
+
     switch (action.type) {
         case GAME_ACTIONS.ADD_WORD: {
             const word = action.payload;
@@ -12,7 +13,10 @@ export default function gameReducer(state, action) {
 
                 status: GAME_STATUS.PLAYING,
 
-                words: [...state.words, word],
+                words: [
+                    ...state.words,
+                    word,
+                ],
 
                 score: state.score + word.word.length,
 
@@ -25,9 +29,33 @@ export default function gameReducer(state, action) {
                     points: word.word.length,
                 },
 
+                // Reinicia el reloj al ingresar una palabra válida
                 timeLeft: 15,
 
                 error: null,
+
+            };
+
+        }
+        case GAME_ACTIONS.TICK: {
+            if (
+                state.status !== GAME_STATUS.PLAYING
+            ) {
+                return state;
+            }
+            if (state.timeLeft <= 1) {
+                return {
+                    ...state,
+
+                    timeLeft: 0,
+
+                    status: GAME_STATUS.FINISHED,
+                };
+            }
+            return {
+                ...state,
+
+                timeLeft: state.timeLeft - 1,
             };
         }
 
@@ -57,13 +85,7 @@ export default function gameReducer(state, action) {
                 ...state,
 
                 status: action.payload,
-            };
 
-        case GAME_ACTIONS.SET_TIMER:
-            return {
-                ...state,
-
-                timeLeft: action.payload,
             };
 
         case GAME_ACTIONS.RESET_GAME:
@@ -72,18 +94,21 @@ export default function gameReducer(state, action) {
         case GAME_ACTIONS.FINISH_GAME:
             return {
                 ...state,
+
                 status: GAME_STATUS.FINISHED,
             };
-        
+
         case GAME_ACTIONS.START_SUBMIT:
             return {
                 ...state,
+
                 isSubmitting: true,
             };
 
         case GAME_ACTIONS.END_SUBMIT:
             return {
                 ...state,
+                
                 isSubmitting: false,
             };
 

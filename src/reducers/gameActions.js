@@ -9,7 +9,7 @@ export const GAME_ACTIONS = {
 
     SET_STATUS: "SET_STATUS",
 
-    SET_TIMER: "SET_TIMER",
+    TICK: "TICK",
 
     FINISH_GAME: "FINISH_GAME",
 
