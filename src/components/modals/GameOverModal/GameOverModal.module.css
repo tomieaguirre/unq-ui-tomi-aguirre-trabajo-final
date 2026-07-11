@@ -84,10 +84,26 @@
 
     display:flex;
 
-    justify-content:flex-end;
+    justify-content:space-evenly;
 
     gap:var(--spacing-md);
 
     margin-top:var(--spacing-xl);
 
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+
+    .actions > :first-child {
+        display: none;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+    
 }
