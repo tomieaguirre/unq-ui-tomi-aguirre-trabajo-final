@@ -9,13 +9,16 @@ import InputPanel from "../../components/game/InputPanel/InputPanel";
 import LastPlay from "../../components/game/LastPlay/LastPlay";
 import HelpPanel from "../../components/game/HelpPanel/HelpPanel";
 import CountdownOverlay from "../../components/game/CountdownOverlay/CountdownOverlay";
-import useGame from "../../hooks/useGame";
-import useCountdown from "../../hooks/useCountdown";
-import { GAME_STATUS } from "../../reducers/gameStatus";
+
 import GameOverModal from "../../components/modals/GameOverModal/GameOverModal";
 
-export default function GamePage() {
+import useGame from "../../hooks/useGame";
+import useCountdown from "../../hooks/useCountdown";
+import useRanking from "../../hooks/useRanking";
 
+import { GAME_STATUS } from "../../reducers/gameStatus";
+
+export default function GamePage() {
     const {
         game,
         submitWord,
@@ -23,7 +26,16 @@ export default function GamePage() {
         finishCountdown,
     } = useGame();
 
+    const {
+        addScore,
+    } = useRanking();
+
     const [showGameOver, setShowGameOver] = useState(false);
+
+    const [rankingResult, setRankingResult] = useState({
+        entered: false,
+        position: null,
+    });
 
     const countdown = useCountdown(
         game.status === GAME_STATUS.COUNTDOWN,
@@ -31,14 +43,21 @@ export default function GamePage() {
     );
 
     useEffect(() => {
-
-        if (game.status === GAME_STATUS.FINISHED) {
-            setShowGameOver(true);
+        if (game.status !== GAME_STATUS.FINISHED) {
+            return;
         }
+
+        const result = addScore({
+            score: game.score,
+            words: game.words.length,
+        });
+
+        setRankingResult(result);
+
+        setShowGameOver(true);
 
     }, [game.status]);
 
-    
     return (
         <main className={styles.page}>
 
@@ -81,33 +100,28 @@ export default function GamePage() {
 
             </section>
 
-            {
-                showGameOver && (
+            {showGameOver && (
+                <GameOverModal
+                    score={game.score}
+                    words={game.words.length}
+                    newRecord={rankingResult.entered}
+                    rankingPosition={rankingResult.position}
+                    onClose={() => setShowGameOver(false)}
+                    onRestart={() => {
+                        setShowGameOver(false);
+                        startNewGame();
+                    }}
+                    onOpenRanking={() => {
+                        setShowGameOver(false);
+                    }}
+                />
+            )}
 
-                    <GameOverModal
-                        score={game.score}
-                        words={game.words.length}
-                        onClose={() =>
-                            setShowGameOver(false)
-                        }
-
-                        onRestart={() => {
-                            setShowGameOver(false);
-                            startNewGame();
-                        }}
-                    />
-                )
-            }
-
-            {
-                game.status === GAME_STATUS.COUNTDOWN && (
-
-                    <CountdownOverlay
-                        value={countdown}
-                    />
-
-                )
-            }
+            {game.status === GAME_STATUS.COUNTDOWN && (
+                <CountdownOverlay
+                    value={countdown}
+                />
+            )}
 
         </main>
     );
