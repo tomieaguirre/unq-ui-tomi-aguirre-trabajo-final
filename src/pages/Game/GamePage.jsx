@@ -9,9 +9,9 @@ import InputPanel from "../../components/game/InputPanel/InputPanel";
 import LastPlay from "../../components/game/LastPlay/LastPlay";
 import HelpPanel from "../../components/game/HelpPanel/HelpPanel";
 import CountdownOverlay from "../../components/game/CountdownOverlay/CountdownOverlay";
-
 import GameOverModal from "../../components/modals/GameOverModal/GameOverModal";
 
+import useAudio from "../../hooks/useAudio";
 import useGame from "../../hooks/useGame";
 import useCountdown from "../../hooks/useCountdown";
 import useRanking from "../../hooks/useRanking";
@@ -42,10 +42,31 @@ export default function GamePage() {
         finishCountdown,
     );
 
+    const {
+        playMusic,
+        stopMusic,
+        playEffect,
+        MUSIC,
+        SOUND,
+    } = useAudio();
+
     useEffect(() => {
+
+        if (game.status === GAME_STATUS.PLAYING) {
+            playMusic(MUSIC.GAME);
+        }
+
+    }, [game.status]);
+
+    useEffect(() => {
+
         if (game.status !== GAME_STATUS.FINISHED) {
             return;
         }
+
+        stopMusic();
+
+        playEffect(SOUND.GAME_OVER);
 
         const result = addScore({
             score: game.score,
