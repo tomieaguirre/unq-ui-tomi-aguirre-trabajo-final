@@ -10,6 +10,7 @@ import styles from "./Header.module.css";
 
 export default function Header({
   onOpenRanking,
+  onOpenSettings,
 }) {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,6 +37,7 @@ export default function Header({
         <IconButton
           icon={<Settings size={20} />}
           label="Configuración"
+          onClick={onOpenSettings}
         />
 
       </div>
@@ -68,7 +70,13 @@ export default function Header({
               Ranking
             </button>
 
-            <button className={styles.menuItem}>
+            <button 
+              className={styles.menuItem}
+              onClick={() => {
+                onOpenSettings();
+                setIsMenuOpen(false);
+              }}
+            >
               Configuración
             </button>
 

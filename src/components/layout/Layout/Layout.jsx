@@ -4,6 +4,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 import RankingModal from "../../modals/RankingModal/RankingModal";
+import SettingsModal from "../../modals/SettingsModal/SettingsModal";
 
 import useRanking from "../../../hooks/useRanking";
 
@@ -17,6 +18,7 @@ export default function Layout({ children }) {
   } = useRanking();
 
   const [showRanking, setShowRanking] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
 
   const openRanking = () => {
     refreshRanking();
@@ -27,6 +29,14 @@ export default function Layout({ children }) {
     setShowRanking(false);
   };
 
+  const openSettings = () => {
+      setShowSettings(true);
+  };
+
+  const closeSettings = () => {
+      setShowSettings(false);
+  };
+
   return (
     <div className={styles.appWrapper}>
 
@@ -34,6 +44,7 @@ export default function Layout({ children }) {
 
         <Header
           onOpenRanking={openRanking}
+          onOpenSettings={openSettings}
         />
 
         <main className={styles.main}>
@@ -48,6 +59,12 @@ export default function Layout({ children }) {
         <RankingModal
           ranking={ranking}
           onClose={closeRanking}
+        />
+      )}
+
+      {showSettings && (
+        <SettingsModal
+          onClose={closeSettings}
         />
       )}
 

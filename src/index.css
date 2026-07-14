@@ -13,6 +13,8 @@
   --color-secondary: #AA7FF9;
   --color-success: #53C76C;
   --color-warning: #FDC824;
+  --color-danger: #E5484D;
+  --color-danger-hover: #D63C42;
 
   /* Logo */
   --color-block-a: #FED44F;
