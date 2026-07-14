@@ -9,6 +9,8 @@ import {
 import {
     setMusicVolume,
     setEffectsVolume,
+    setMusicMuted,
+    setEffectsMuted,
 } from "../services/audioService";
 
 export default function useSettings() {
@@ -23,17 +25,11 @@ export default function useSettings() {
 
         setSettings(updated);
 
-        setMusicVolume(
-            updated.musicEnabled
-                ? updated.musicVolume
-                : 0
-        );
+        setMusicVolume(updated.musicVolume);
+        setEffectsVolume(updated.effectsVolume);
 
-        setEffectsVolume(
-            updated.effectsEnabled
-                ? updated.effectsVolume
-                : 0
-        );
+        setMusicMuted(!updated.musicEnabled);
+        setEffectsMuted(!updated.effectsEnabled);
 
     };
 

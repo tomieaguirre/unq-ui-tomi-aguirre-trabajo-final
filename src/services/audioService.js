@@ -119,3 +119,19 @@ export function setEffectsVolume(volume) {
     });
 
 }
+
+export function setMusicMuted(muted) {
+
+    Object.values(music).forEach(audio => {
+        audio.muted = muted;
+    });
+
+}
+
+export function setEffectsMuted(muted) {
+
+    Object.values(effects).forEach(audio => {
+        audio.muted = muted;
+    });
+
+}
