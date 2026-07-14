@@ -1,13 +1,32 @@
 import { Link, Play } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 import styles from "./HomePage.module.css";
 import Button from "../../components/ui/Button/Button";
 import Logo from "../../components/branding/Logo/Logo";
 import { PATHS } from "../../routes/paths";
 
+import useAudio from "../../hooks/useAudio";
+
 export default function HomePage() {
   const navigate = useNavigate();
+
+  const {
+    playMusic,
+    stopMusic,
+    MUSIC,
+  } = useAudio();
+
+  useEffect(() => {
+
+      playMusic(MUSIC.MENU);
+
+      return () => {
+          stopMusic();
+      };
+
+  }, []);
 
   return (
     <div className={styles.content}>
@@ -27,7 +46,10 @@ export default function HomePage() {
           size="lg"
           fullWidth
           iconLeft={<Play fill="white" size={24} />}
-          onClick={() => navigate(PATHS.GAME)}
+          onClick={() => {
+            stopMusic();
+            navigate(PATHS.GAME);
+          }}
         >
           JUGAR
         </Button>

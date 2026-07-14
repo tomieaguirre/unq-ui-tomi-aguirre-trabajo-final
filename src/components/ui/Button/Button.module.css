@@ -61,6 +61,15 @@
     color: var(--color-primary);
 }
 
+.danger {
+    background: var(--color-danger);
+    color: var(--color-surface);
+}
+
+.danger:hover:not(:disabled) {
+    background: var(--color-danger-hover);
+}
+
 /* ============================================
    SIZES
    ============================================ */

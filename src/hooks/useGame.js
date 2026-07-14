@@ -13,6 +13,11 @@ import {
     isValidChain,
 } from "../utils/wordValidation";
 
+import {
+    playEffect,
+    SOUND,
+} from "../services/audioService";
+
 
 export default function useGame() {
 
@@ -194,6 +199,8 @@ export default function useGame() {
 
             });
 
+            playEffect(SOUND.SUCCESS);
+
             return true;
 
         } finally {
@@ -211,6 +218,8 @@ export default function useGame() {
      * mostrando el contador 3..2..1.
      */
     const startNewGame = () => {
+
+        playEffect(SOUND.COUNTDOWN);
 
         dispatch({
             type: GAME_ACTIONS.START_COUNTDOWN,

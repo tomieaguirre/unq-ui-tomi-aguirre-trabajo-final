@@ -10,18 +10,13 @@ import Button from "../../ui/Button/Button";
 import styles from "./GameOverModal.module.css";
 
 export default function GameOverModal({
-
     score,
     words,
-
     newRecord = false,
-
     rankingPosition = null,
-
     onRestart,
     onClose,
     onOpenRanking,
-
 }) {
 
     return (
@@ -69,18 +64,26 @@ export default function GameOverModal({
 
             {newRecord && (
 
-                <button
-                    className={styles.record}
-                    onClick={onOpenRanking}
-                >
+                    <section className={styles.record}>
 
-                    🎉 ¡Nuevo récord!
+                        <Trophy
+                            size={22}
+                            className={styles.recordIcon}
+                        />
 
-                    <span>
-                        Puesto #{rankingPosition}
-                    </span>
+                        <div className={styles.recordInfo}>
 
-                </button>
+                            <span className={styles.recordTitle}>
+                                ¡Nuevo récord!
+                            </span>
+
+                            <span className={styles.recordText}>
+                                Alcanzaste el puesto #{rankingPosition} del ranking.
+                            </span>
+
+                        </div>
+
+                    </section>
 
             )}
 
@@ -88,7 +91,6 @@ export default function GameOverModal({
 
                 <Button
                     variant="secondary"
-                    size="md"
                     onClick={onClose}
                 >
                     Ver partida
@@ -96,7 +98,6 @@ export default function GameOverModal({
 
                 <Button
                     variant="primary"
-                    size="md"
                     iconLeft={<RotateCcw size={18} />}
                     onClick={onRestart}
                 >

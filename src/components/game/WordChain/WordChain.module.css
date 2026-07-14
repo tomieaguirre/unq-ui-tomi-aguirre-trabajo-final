@@ -40,12 +40,6 @@
 ============================================ */
 
 .listWrapper {
-    flex: 1;
-    min-height: 0;
-
-    overflow-y: auto;
-    overflow-x: hidden;
-
     padding-top: var(--spacing-sm);
     padding-right: var(--spacing-sm);
     padding-bottom: var(--spacing-sm);
@@ -98,19 +92,6 @@
 .emptyState p {
     font-weight: 600;
     margin-bottom: 8px;
-}
-
-/* ============================================
-   SCROLLBAR
-============================================ */
-
-.listWrapper::-webkit-scrollbar {
-    height: 8px;
-}
-
-.listWrapper::-webkit-scrollbar-thumb {
-    background: #D7DCF0;
-    border-radius: 999px;
 }
 
 /* ============================================
