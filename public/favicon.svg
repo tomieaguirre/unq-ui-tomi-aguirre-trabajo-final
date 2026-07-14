@@ -1,0 +1,94 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 64 64"
+>
+
+    <!-- A -->
+    <rect
+        x="2"
+        y="2"
+        width="28"
+        height="28"
+        rx="6"
+        fill="#FED44F"
+    />
+    <text
+        x="16"
+        y="17"
+        text-anchor="middle"
+        dominant-baseline="central"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="700"
+        fill="#FFFFFF"
+    >
+        A
+    </text>
+
+    <!-- B -->
+    <rect
+        x="34"
+        y="2"
+        width="28"
+        height="28"
+        rx="6"
+        fill="#9DE56D"
+    />
+    <text
+        x="48"
+        y="17"
+        text-anchor="middle"
+        dominant-baseline="central"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="700"
+        fill="#FFFFFF"
+    >
+        B
+    </text>
+
+    <!-- C -->
+    <rect
+        x="2"
+        y="34"
+        width="28"
+        height="28"
+        rx="6"
+        fill="#85C8FE"
+    />
+    <text
+        x="16"
+        y="49"
+        text-anchor="middle"
+        dominant-baseline="central"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="700"
+        fill="#FFFFFF"
+    >
+        C
+    </text>
+
+    <!-- D -->
+    <rect
+        x="34"
+        y="34"
+        width="28"
+        height="28"
+        rx="6"
+        fill="#CAA3FD"
+    />
+    <text
+        x="48"
+        y="49"
+        text-anchor="middle"
+        dominant-baseline="central"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="700"
+        fill="#FFFFFF"
+    >
+        D
+    </text>
+
+</svg>
