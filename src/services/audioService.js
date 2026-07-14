@@ -27,11 +27,24 @@ const effects = {
     [SOUND.GAME_OVER]: new Audio(gameOverSound),
 };
 
+// ============================================
+// INITIAL CONFIGURATION
+// ============================================
+
 Object.values(music).forEach(audio => {
     audio.loop = true;
+    audio.preload = "auto";
+});
+
+Object.values(effects).forEach(audio => {
+    audio.preload = "auto";
 });
 
 let currentMusic = null;
+
+// ============================================
+// MUSIC
+// ============================================
 
 export function playMusic(name) {
 
@@ -67,6 +80,10 @@ export function stopMusic() {
 
 }
 
+// ============================================
+// EFFECTS
+// ============================================
+
 export function playEffect(name) {
 
     const effect = effects[name];
@@ -83,10 +100,14 @@ export function playEffect(name) {
 
 }
 
+// ============================================
+// VOLUME
+// ============================================
+
 export function setMusicVolume(volume) {
 
     Object.values(music).forEach(audio => {
-        audio.volume = volume;
+        audio.volume = Math.min(1, Math.max(0, volume));
     });
 
 }
@@ -94,7 +115,7 @@ export function setMusicVolume(volume) {
 export function setEffectsVolume(volume) {
 
     Object.values(effects).forEach(audio => {
-        audio.volume = volume;
+        audio.volume = Math.min(1, Math.max(0, volume));
     });
 
 }

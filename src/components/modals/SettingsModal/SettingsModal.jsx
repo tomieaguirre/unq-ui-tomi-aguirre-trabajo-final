@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import {
     AlertTriangle,
+    Music2,
     Trash2,
 } from "lucide-react";
 
@@ -9,6 +10,7 @@ import Modal from "../../ui/Modal/Modal";
 import Button from "../../ui/Button/Button";
 
 import useRanking from "../../../hooks/useRanking";
+import useSettings from "../../../hooks/useSettings";
 
 import styles from "./SettingsModal.module.css";
 
@@ -19,6 +21,11 @@ export default function SettingsModal({
     const {
         resetRanking,
     } = useRanking();
+
+    const {
+        settings,
+        save,
+    } = useSettings();
 
     const [confirming, setConfirming] = useState(false);
 
@@ -37,14 +44,147 @@ export default function SettingsModal({
             onClose={onClose}
         >
 
-            {
+            {/* ============================================
+                AUDIO
+            ============================================ */}
 
-                !confirming ? (
+            <section className={styles.section}>
+
+                <h3 className={styles.sectionTitle}>
+                    Audio
+                </h3>
+
+                {/* Música */}
+
+                <div className={styles.setting}>
+
+                    <div className={styles.settingHeader}>
+
+                        <div className={styles.settingLabel}>
+
+                            <Music2
+                                size={18}
+                                className={styles.settingIcon}
+                            />
+
+                            <span>Música</span>
+
+                        </div>
+
+                        <label className={styles.switch}>
+
+                            <input
+                                type="checkbox"
+                                checked={settings.musicEnabled}
+                                onChange={(event) =>
+                                    save({
+                                        musicEnabled: event.target.checked,
+                                    })
+                                }
+                            />
+
+                            <span className={styles.sliderSwitch} />
+
+                        </label>
+
+                    </div>
+
+                    <input
+                        className={styles.slider}
+                        type="range"
+                        min="0"
+                        max="100"
+                        value={settings.musicVolume * 100}
+                        onChange={(event) => {
+
+                            const volume =
+                                Number(event.target.value) / 100;
+
+                            save({
+                                musicVolume: volume,
+                                musicEnabled: volume > 0,
+                            });
+
+                        }}
+                    />
+
+                </div>
+
+                {/* Efectos */}
+
+                <div className={styles.setting}>
+
+                    <div className={styles.settingHeader}>
+
+                        <div className={styles.settingLabel}>
+
+                            <Music2
+                                size={18}
+                                className={styles.settingIcon}
+                            />
+
+                            <span>Efectos</span>
+
+                        </div>
+
+                        <label className={styles.switch}>
+
+                            <input
+                                type="checkbox"
+                                checked={settings.effectsEnabled}
+                                onChange={(event) =>
+                                    save({
+                                        effectsEnabled:
+                                            event.target.checked,
+                                    })
+                                }
+                            />
+
+                            <span className={styles.sliderSwitch} />
+
+                        </label>
+
+                    </div>
+
+                    <input
+                        className={styles.slider}
+                        type="range"
+                        min="0"
+                        max="100"
+                        value={settings.effectsVolume * 100}
+                        onChange={(event) => {
+
+                            const volume =
+                                Number(event.target.value) / 100;
+
+                            save({
+                                effectsVolume: volume,
+                                effectsEnabled: volume > 0,
+                            });
+
+                        }}
+                    />
+
+                </div>
+
+            </section>
+
+            {/* ============================================
+                DATA
+            ============================================ */}
+
+            <section className={styles.section}>
+
+                <h3 className={styles.sectionTitle}>
+                    Datos
+                </h3>
+
+                {!confirming ? (
 
                     <>
 
                         <p className={styles.description}>
-                            Administrá los datos de la aplicación.
+                            Administrá los datos almacenados de la aplicación.
                         </p>
 
                         <button
@@ -118,9 +258,9 @@ export default function SettingsModal({
 
                     </>
 
-                )
+                )}
 
-            }
+            </section>
 
         </Modal>
 

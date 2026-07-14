@@ -6,6 +6,11 @@ import {
     resetSettings,
 } from "../services/settingsService";
 
+import {
+    setMusicVolume,
+    setEffectsVolume,
+} from "../services/audioService";
+
 export default function useSettings() {
 
     const [settings, setSettings] = useState(
@@ -18,24 +23,37 @@ export default function useSettings() {
 
         setSettings(updated);
 
+        setMusicVolume(
+            updated.musicEnabled
+                ? updated.musicVolume
+                : 0
+        );
+
+        setEffectsVolume(
+            updated.effectsEnabled
+                ? updated.effectsVolume
+                : 0
+        );
+
     };
 
     const reset = () => {
 
         resetSettings();
 
-        setSettings(getSettings());
+        const updated = getSettings();
+
+        setSettings(updated);
+
+        setMusicVolume(updated.musicVolume);
+        setEffectsVolume(updated.effectsVolume);
 
     };
 
     return {
-
         settings,
-
         save,
-
         reset,
-
     };
 
 }
